@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Collections;
+
 
 namespace GoogleChromeHistory
 {
@@ -22,6 +24,7 @@ namespace GoogleChromeHistory
         {
 
         }
+
         private Boolean closeChrome()
         {
             //closes google chrome so that this program can open the history sql file
@@ -40,5 +43,23 @@ namespace GoogleChromeHistory
             }
             return true;
         }
+    }
+    public class HistoryItem
+    {
+        public string url;
+        public string title;
+        public DateTime visitedTime;
+        public string domain;
+        public HistoryItem(String URLNew)
+        {
+            url = URLNew;
+            
+        }
+
+        public string toStringDisplay()
+        {
+            return url + "  " + title + "  " + visitedTime.ToString() + " " +  domain;
+        }
+
     }
 }
