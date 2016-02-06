@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Collections;
@@ -25,6 +19,16 @@ namespace GoogleChromeHistory
         private void cmdExport_Click(object sender, EventArgs e)
         {
             //exports all of the history to a text file
+            getHistory();
+            String path = saveFileDialog("Chrome History");
+            if(path != null)
+            {
+                System.IO.StreamWriter file = new System.IO.StreamWriter(path);
+                foreach(HistoryItem h in history)
+                {
+                    file.WriteLine(h.toStringDisplay());
+                }
+            }
         }
 
         private Boolean getHistory()
@@ -89,13 +93,32 @@ namespace GoogleChromeHistory
             }
             return true;
         }
+
+        private void cmdView_Click(object sender, EventArgs e)
+        {
+            lstHistory.Items.Clear();
+            this.getHistory();
+            foreach (HistoryItem h in history)
+                lstHistory.Items.Add(h.toStringDisplay());
+        }
+        private String saveFileDialog(String text)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.FileName = text;
+            saveFile.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                return saveFile.FileName;
+            }
+            return null;
+        }
     }
     public class HistoryItem
     {
-        public string url;
-        public string title;
+        public string url = "";
+        public string title = "";
         public DateTime visitedTime;
-        public string domain;
+        public string domain = "";
         public HistoryItem(String URLNew)
         {
             url = URLNew;
@@ -103,7 +126,7 @@ namespace GoogleChromeHistory
         }
         public string toStringDisplay()
         {
-            return url + "  " + title + "  " + visitedTime.ToString() + " " +  domain;
+            return title + "  " +  domain+ "  " + url + " " +  visitedTime.ToString();
         }
 
     }
