@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.cmdExport = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.chTime = new System.Windows.Forms.CheckBox();
+            this.chTitle = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // cmdExport
@@ -43,33 +43,33 @@
             this.cmdExport.UseVisualStyleBackColor = true;
             this.cmdExport.Click += new System.EventHandler(this.cmdExport_Click);
             // 
-            // checkBox1
+            // chTime
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(45, 135);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(120, 17);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "Include Time Stamp";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chTime.AutoSize = true;
+            this.chTime.Location = new System.Drawing.Point(12, 113);
+            this.chTime.Name = "chTime";
+            this.chTime.Size = new System.Drawing.Size(120, 17);
+            this.chTime.TabIndex = 1;
+            this.chTime.Text = "Include Time Stamp";
+            this.chTime.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chTitle
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(45, 173);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(112, 17);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "Include Page Title";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chTitle.AutoSize = true;
+            this.chTitle.Location = new System.Drawing.Point(12, 146);
+            this.chTitle.Name = "chTitle";
+            this.chTitle.Size = new System.Drawing.Size(112, 17);
+            this.chTitle.TabIndex = 2;
+            this.chTitle.Text = "Include Page Title";
+            this.chTitle.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(222, 231);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.chTitle);
+            this.Controls.Add(this.chTime);
             this.Controls.Add(this.cmdExport);
             this.Name = "frmMain";
             this.Text = "Google Chrome History viewer";
@@ -81,8 +81,8 @@
         #endregion
 
         private System.Windows.Forms.Button cmdExport;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox chTime;
+        private System.Windows.Forms.CheckBox chTitle;
     }
 }
 
