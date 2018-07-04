@@ -18,15 +18,16 @@ namespace GoogleChromeHistory
 
         private void cmdExport_Click(object sender, EventArgs e)
         {
-            //exports all of the history to a text file
             getHistory();
-            String path = saveFileDialog("Chrome History");
-            if(path != null)
+
+            string path = saveFileDialog("Chrome History");
+
+            if (path != null)
             {
-                System.IO.StreamWriter file = new System.IO.StreamWriter(path);
-                foreach(HistoryItem h in history)
+                using (var file = new StreamWriter(path))
                 {
-                    file.WriteLine(h.toStringDisplay());
+                    foreach (HistoryItem h in history)
+                        file.WriteLine(h.toStringDisplay());
                 }
             }
         }
